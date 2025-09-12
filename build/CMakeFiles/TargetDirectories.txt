@@ -1,0 +1,3 @@
+/home/niktit/Sandbox/build/CMakeFiles/Sandbox.dir
+/home/niktit/Sandbox/build/CMakeFiles/edit_cache.dir
+/home/niktit/Sandbox/build/CMakeFiles/rebuild_cache.dir

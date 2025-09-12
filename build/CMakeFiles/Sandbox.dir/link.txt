@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/Sandbox.dir/main.cpp.o CMakeFiles/Sandbox.dir/Cell.cpp.o CMakeFiles/Sandbox.dir/base.cpp.o CMakeFiles/Sandbox.dir/placing.cpp.o CMakeFiles/Sandbox.dir/rendering.cpp.o CMakeFiles/Sandbox.dir/simulating.cpp.o -o Sandbox  -lsfml-graphics -lsfml-window -lsfml-system
