@@ -1,13 +1,16 @@
 #include "rendering.h"
-#include "Cell.h"
+#include "Grid.h"
+#include <SFML/Graphics/RenderWindow.hpp>
 
-void render() {
-  VertexArray pixels(PrimitiveType::Triangles, units.size() * 6);
+void Renderer::render() {
+  sf::VertexArray pixels(sf::PrimitiveType::Triangles, WIDTH * HEIGHT * 6);
 
-  for (int i = 0; i < units.size(); ++i) {
-    const auto &u = units[i];
-    float px = u.position.x * SCALE;
-    float py = u.position.y * SCALE;
+  for (int i = 0; i < WIDTH * HEIGHT; ++i) {
+    const auto c = grid.get(i);
+    if (c.type == Types::empty)
+      continue;
+    float px = (i % WIDTH) * SCALE;
+    float py = i / WIDTH * SCALE;
 
     int v = i * 6;
     pixels[v + 0].position = {px, py};
@@ -18,13 +21,13 @@ void render() {
     pixels[v + 5].position = {px, py + SCALE};
 
     for (int j = 0; j < 6; j++)
-      pixels[v + j].color = getColor[u.color];
+      pixels[v + j].color = getColor[c.color];
   }
   window.draw(pixels);
 }
 
-void display() {
-  window.clear(Color::White);
+void Renderer::display() {
+  window.clear(sf::Color::White);
   render();
   window.draw(cursor);
   window.display();
